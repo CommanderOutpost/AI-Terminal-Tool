@@ -16,3 +16,4 @@ for _ in range(max_ite):
     user_command = user_command + "[" + terminal_output.lower() + "]"
 
     print(terminal_output)
+
