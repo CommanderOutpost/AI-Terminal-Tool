@@ -3,6 +3,16 @@ from ai.ai_command import generate_command
 
 user_command = get_argument_from_terminal()
 
-ai_command = generate_command(user_command)
+max_ite = 3
 
-run_terminal_command(ai_command)
+for _ in range(max_ite):
+    ai_command = generate_command(user_command)
+    terminal_output = run_terminal_command(ai_command)
+
+    if "error" not in terminal_output.lower():
+        print(terminal_output)
+        break
+
+    user_command = user_command + "[" + terminal_output.lower() + "]"
+
+    print(terminal_output)

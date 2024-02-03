@@ -1,5 +1,5 @@
 import sys
-import subprocess
+from subprocess import run, PIPE, CalledProcessError
 
 
 def get_argument_from_terminal():
@@ -14,7 +14,7 @@ def get_argument_from_terminal():
 
 def run_terminal_command(command):
     try:
-        subprocess.run(command, shell=True, check=True)
-        print(f"Command '{command}' executed successfully.")
-    except subprocess.CalledProcessError as e:
-        print(f"Error executing command '{command}': {e}")
+        run(command, shell=True, check=True, stderr=PIPE)
+        return f"Command '{command}' executed successfully."
+    except CalledProcessError as e:
+        return f"Error executing command '{command}': {e.stderr.decode('utf-8')}"

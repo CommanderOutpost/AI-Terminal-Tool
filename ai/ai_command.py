@@ -21,7 +21,8 @@ def generate_command(user_command):
             {
                 "role": "system",
                 "content": """You will generate a command a terminal understands based on the user command given, you will translate their command essentially. For example, "create a folder named rodeo"
-                and you will return a command "mkdir rodeo". Do not return any other thing apart from the command. """,
+                and you will return a command "mkdir rodeo". Do not return any other thing apart from the command. Please handle errors gracefully and provide a helpful command in case of failure. Example of error is user command is
+                "create a new folder called terminal[mkdir: cannot create directory ‘terminal’: File exists]", You will assess the situation and return a new command like "mkdir terminal1".""",
             },
             {"role": "user", "content": f"The user command is {user_command}"},
         ],
