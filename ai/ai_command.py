@@ -2,12 +2,13 @@ import openai
 from dotenv import load_dotenv
 import os
 from ai.ai_reply_storage import RedisDatabase
+from variable_file_reader import extract_api_key_value, extract_model_value
 
 # Load environment variables from .env file
 load_dotenv()
 
 # Set OpenAI API key from environment variable
-openai.api_key = os.getenv("OPENAI_API_KEY")
+openai.api_key = os.getenv("OPENAI_API_KEY") or extract_api_key_value()
 
 
 def generate_command(user_command):
@@ -21,7 +22,7 @@ def generate_command(user_command):
 
     # Use OpenAI GPT-3.5-turbo model to generate content
     response = openai.ChatCompletion.create(
-        model="gpt-3.5-turbo",
+        model=extract_model_value(),
         messages=[
             {
                 "role": "system",
@@ -33,7 +34,10 @@ def generate_command(user_command):
                 FOR AN OUTPUT SIMPLY RETURN THE COMMAND. ---------------------------
                 """,
             },
-            {"role": "user", "content": f"The user command is {user_command}, the current data is {all_data}"},
+            {
+                "role": "user",
+                "content": f"The user command is {user_command}, the current data is {all_data}",
+            },
         ],
     )
 
