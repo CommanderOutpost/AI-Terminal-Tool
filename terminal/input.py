@@ -14,7 +14,11 @@ def get_argument_from_terminal():
 
 def run_terminal_command(command):
     try:
-        run(command, shell=True, check=True, stderr=PIPE)
-        return f"Command '{command}' executed successfully."
+        result = run(command, shell=True, check=True, stderr=PIPE)
+        if result.stdout is not None:
+            output = result.stdout.decode("utf-8")
+        else:
+            output = ""
+        return f"Command '{command}' executed successfully. Output: {output}"
     except CalledProcessError as e:
         return f"Error executing command '{command}': {e.stderr.decode('utf-8')}"

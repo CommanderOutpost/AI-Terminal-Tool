@@ -11,7 +11,7 @@ class RedisDatabase:
     def add_item(self, key, value):
         # Add an item to the Redis database
         self.redis_db.set(key, value)
-        print(f"Added {key}: {value} to the database.")
+        # print(f"Added {key}: {value} to the database.")
 
     def remove_item(self, key):
         # Remove an item from the Redis database
@@ -21,6 +21,13 @@ class RedisDatabase:
         else:
             print(f"{key} not found in the database.")
 
+    def get_all_data(self):
+        # Get all key-value pairs from the Redis database
+        all_keys = self.redis_db.keys()
+        all_data = {key: self.redis_db.get(key) for key in all_keys}
+        return all_data
 
-if __name__ == "__main__":
-    main()
+    def delete_all_data(self):
+        # Delete all keys and their associated values
+        self.redis_db.flushall()
+        # print("All data deleted from Redis.")
