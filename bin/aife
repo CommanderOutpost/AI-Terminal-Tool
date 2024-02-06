@@ -10,7 +10,3 @@ if [ -z "$1" ]; then
     echo "Input aife -h to see the possible commands aife offers."
     exit 1
 fi
-
-# Run the intended command
-echo "Activating command: $2"
-$2
