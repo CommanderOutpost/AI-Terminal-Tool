@@ -1,0 +1,16 @@
+#!/bin/bash
+
+# Check if the keyword "activate" is provided
+# Run python script
+python3 "/usr/bin/aife-tool/main.py" "$1"
+
+# Check if there is at least one command after the keyword
+if [ -z "$1" ]; then
+    echo "Error: No command provided after the keyword."
+    echo "Input aife -h to see the possible commands aife offers."
+    exit 1
+fi
+
+# Run the intended command
+echo "Activating command: $2"
+$2

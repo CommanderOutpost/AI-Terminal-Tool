@@ -1,0 +1,5 @@
+Package: aife
+Version: 1.0
+Maintainer: Rasheed Salami thcmofskot@gmail.com
+Architecture: all
+Description: An AI tool that allows the use of natural text in terminal.

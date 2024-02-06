@@ -1,4 +1,4 @@
-openai.txt
-__pycache__
-ai/__pycache__
-terminal/__pycache__
+bin/aife-tool/__pycache__
+bin/aife-tool/ai/__pycache__/
+bin/aife-tool/terminal/__pycache__/
+.env
