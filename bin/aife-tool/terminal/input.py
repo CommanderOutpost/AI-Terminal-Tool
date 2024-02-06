@@ -14,7 +14,7 @@ def get_argument_from_terminal():
 
 def run_terminal_command(command):
     try:
-        result = run(command, shell=True, check=True, stderr=PIPE)
+        result = run(command, shell=True, check=True, stdout=PIPE, stderr=PIPE)
         if result.stdout is not None:
             output = result.stdout.decode("utf-8")
         else:
