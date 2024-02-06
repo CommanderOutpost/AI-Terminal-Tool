@@ -1,11 +1,5 @@
 #!/bin/bash
 
-# Install dependencies
-echo "Installing dependencies"
-sudo apt install -y python3
-sudo apt install -y python3-pip
-pip3 install openai redis
-
 # Get the current user's home directory
 USER_HOME=$(getent passwd $SUDO_USER | cut -d: -f6)
 
@@ -19,7 +13,7 @@ add_aife_function() {
 
 # Add the aife() function to the user's .bashrc file
 add_aife_function
-echo "Executing postinst script - Done"
+echo "Executed postinst script - Done"
 
 # Source the user's .bashrc file
 source "$USER_HOME/.bashrc"
