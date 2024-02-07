@@ -2,10 +2,15 @@ from terminal.input import get_argument_from_terminal, run_terminal_command
 from ai.ai_command import generate_command
 from ai.ai_reply_storage import RedisDatabase
 import datetime
+import signal
+from terminal.interruption import cleanup
 
 redis_db = RedisDatabase()
 
 user_command = get_argument_from_terminal()
+
+# Set up signal handler for Ctrl+C
+signal.signal(signal.SIGINT, cleanup)
 
 MAX_ITE = 5
 
@@ -15,7 +20,7 @@ for _ in range(MAX_ITE):
         print(terminal_output)
         redis_db.delete_all_data()
         break
-    
+
     terminal_output = run_terminal_command(ai_command)
 
     current_datetime = datetime.datetime.now()
