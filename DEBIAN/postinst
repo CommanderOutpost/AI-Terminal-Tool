@@ -1,19 +1,4 @@
 #!/bin/bash
 
-# Get the current user's home directory
-USER_HOME=$(getent passwd $SUDO_USER | cut -d: -f6)
+echo "aife installation - Done"
 
-# Function to append the aife() function to the user's .bashrc file
-add_aife_function() {
-    echo "" >> "$USER_HOME/.bashrc"
-    echo 'aife() {' >> "$USER_HOME/.bashrc"
-    echo '    source /usr/bin/aife.sh "$@"' >> "$USER_HOME/.bashrc"
-    echo '}' >> "$USER_HOME/.bashrc"
-}
-
-# Add the aife() function to the user's .bashrc file
-add_aife_function
-echo "Executed postinst script - Done"
-
-# Source the user's .bashrc file
-source "$USER_HOME/.bashrc"
