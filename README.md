@@ -24,7 +24,7 @@ bash install.sh
 
 ## Usage
 Below are examples of aife in use.
-* Simple things like creating a file
+
   ```
   aife "create a file called sunday"
   AI Command:  touch sunday 
@@ -45,4 +45,4 @@ Below are examples of aife in use.
   Terminal Output:  Command 'touch Amay' executed successfully.
   Command 'touch Amay' executed successfully.
   ```
-* More useful things like
+  
