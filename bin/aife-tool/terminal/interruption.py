@@ -16,4 +16,3 @@ def cleanup(signum, frame):
 
     # Exit the program with status code 1
     sys.exit(1)
-u
