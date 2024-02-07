@@ -36,13 +36,13 @@ Below are examples of aife in use.
   aife "创建一个名为 杨钰莹 的文件"
   AI Command:  mkdir 杨钰莹 
   Terminal Output:  Command 'mkdir 杨钰莹' executed successfully. Output: 
-  Command 'mkdir 杨钰莹' executed successfully. Output: 
+  Command 'mkdir 杨钰莹' executed successfully.
   ```
   
   ```
   aife "Maak een bestand met de naam Amay"
   AI Command:  touch Amay 
-  Terminal Output:  Command 'touch Amay' executed successfully. Output: 
-  Command 'touch Amay' executed successfully. Output:
+  Terminal Output:  Command 'touch Amay' executed successfully.
+  Command 'touch Amay' executed successfully.
   ```
 * More useful things like
